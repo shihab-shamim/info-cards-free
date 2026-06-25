@@ -13,6 +13,7 @@
 
   import {  toolTipPresets, } from "../../../utils/function";
   import BlockPreview from "./panel/BlockPreview";
+import { BBlocksAds } from "../../../../../../../bpl-tools/Components";
 
 
   export default function ({ attributes, setAttributes, updateCard, device,activeIndex }) {
@@ -31,6 +32,10 @@
     return (
       <>
         <InspectorControls>
+          <div className='bPlInspectorInfo'>
+					<BBlocksAds/>
+				</div>
+
           <TabPanel
             className="bPlTabPanel"
             activeClass="activeTab"
