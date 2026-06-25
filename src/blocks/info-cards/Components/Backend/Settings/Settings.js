@@ -11,9 +11,8 @@
   import General from "./General/General";
   import Style from "./Style/Style";
 
-  import { themeSwitch, toolTipPresets, } from "../../../utils/function";
+  import {  toolTipPresets, } from "../../../utils/function";
   import BlockPreview from "./panel/BlockPreview";
-  import { AboutProModal, ProModal } from "../../../../../../../bpl-tools/ProControls";
 
 
   export default function ({ attributes, setAttributes, updateCard, device,activeIndex }) {

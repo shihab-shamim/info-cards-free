@@ -7,7 +7,6 @@ import { withSelect } from "@wordpress/data";
 import Style from '../Common/Style';
 import Settings from "./Settings/Settings";
 import {  getCardContentEdit } from "../../utils/function";
-import { usePremiumInEditor } from "../../../../../../bpl-tools/hooks";
 import ClipBoard from "../../../../components/ClipBoard";
 
 

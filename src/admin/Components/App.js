@@ -4,7 +4,6 @@
 	import Demos         from '../../../../bpl-tools/Admin/Demos';
 	import Pricing       from '../../../../bpl-tools/Admin/Pricing';
 	import FeatureCompare from '../../../../bpl-tools/Admin/FeatureCompare';
-	import Activation    from '../../../../bpl-tools/Admin/Activation';
 	import OurPlugins    from '../../../../bpl-tools/Admin/OurPlugins';
 	import Settings      from '../../../../bpl-tools/Admin/Settings';
 	import Blocks        from '../../../../bpl-tools/Admin/Blocks';

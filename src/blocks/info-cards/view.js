@@ -9,8 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   allCards.forEach((cardsEl) => {
     const attributes = JSON.parse(cardsEl.dataset.attributes);
-    const {theme}=attributes;
-    const isBacked=false
+   
 
     const root = createRoot(cardsEl);
     root.render(

@@ -8,18 +8,14 @@ import {
   Dashicon,
   SelectControl,
   ToggleControl,
-  TextareaControl,
+  
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
   Label,
   Background,
   InlineMediaUpload,
-  ItemsPanel,
-  Device,
-  BoxControl,
-  BButtonGroup,
-  BoxControl as BoxControls,
+
 } from "../../../../../../../../bpl-tools/Components";
 import { useState } from "react";
 import { BDevice } from "../../../../../../../../bpl-tools/Components/Deprecated";
@@ -30,7 +26,6 @@ const General = ({
   attributes,
   setAttributes,
   updateCard,
-  editDevice,
 
 }) => {
   const {
