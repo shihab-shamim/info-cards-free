@@ -1,0 +1,171 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/animated-gradient-cards/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-icb-animated-gradient-cards-pro {
+  box-sizing: border-box;
+}
+.wp-block-icb-animated-gradient-cards-pro *,
+.wp-block-icb-animated-gradient-cards-pro ::before,
+.wp-block-icb-animated-gradient-cards-pro ::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  /* 4. Card Component */
+  /* 5. Shadow Layers (Elevation Cross-fade) */
+  /* Hover Shadow (Elevation 4) */
+  /* Normal Shadow (Elevation 1) */
+  /* 6. Card Visuals & Image */
+  /* 7. Content Overlay */
+  /* 8. Animated Border Utility */
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .container {
+  width: 100%;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .wrapper {
+  display: grid;
+  gap: 2rem;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card-list li {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .state-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .state-layer::before,
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .state-layer::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  border-radius: inherit;
+  transition: opacity 250ms ease-in-out;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .state-layer::before {
+  box-shadow: 0px 16px 32px -4px oklch(15% 0.01 286deg / 0.1), 0px 4px 4px -4px oklch(15% 0.01 286deg / 0.05);
+  opacity: 0;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .state-layer::after {
+  box-shadow: 0px 1px 4px oklch(15% 0.01 286deg / 0.05);
+  mix-blend-mode: plus-darker;
+  opacity: 1;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card:is(:hover, :focus-visible, :active) .state-layer::before {
+  opacity: 1;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card:is(:hover, :focus-visible, :active) .state-layer::after {
+  opacity: 0;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card-wrapper {
+  display: grid;
+  border-radius: inherit;
+  overflow: clip;
+  height: 100%;
+  width: 100%;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .visual {
+  grid-area: 1/1;
+  overflow: clip;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .img {
+  display: block;
+  block-size: 100%;
+  inline-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: translate 250ms ease-in;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card:is(:hover, :focus-visible, :active) .img {
+  translate: 0px -15px;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .content {
+  grid-area: 1/1;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Gradient overlay for readability */
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .content-wrapper {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 180px 1.25rem 2rem;
+  transition: translate 250ms ease-in-out;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card:is(:hover, :focus-visible, :active) .content-wrapper {
+  translate: 0px -15px;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .link {
+  opacity: 0;
+  transition: opacity 250ms 0.15s ease;
+  position: relative;
+  z-index: 3;
+  border: none;
+  outline: none;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .link span {
+  display: inline-flex;
+  align-items: center;
+}
+@media (hover: hover) and (pointer: fine) {
+  .wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .card:is(:hover, :focus-visible, :active) .link {
+    opacity: 1;
+  }
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .bordered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  opacity: 0;
+  border: 4px solid transparent;
+  transition: opacity 250ms ease-in-out;
+  pointer-events: none;
+  mask: linear-gradient(white 0 0) padding-box, linear-gradient(white 0 0);
+  -webkit-mask: linear-gradient(white 0 0) padding-box, linear-gradient(white 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: rotate-gradient 2.25s linear infinite;
+  animation-play-state: paused;
+}
+.wp-block-icb-animated-gradient-cards-pro .one-card-section-wrapper .bordered:is(:hover, :focus-within, :active)::after {
+  opacity: 1;
+  animation-play-state: running;
+}
+@keyframes rotate-gradient {
+  from {
+    --gradient-angle: 0deg;
+  }
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+/*# sourceMappingURL=view.css.map*/

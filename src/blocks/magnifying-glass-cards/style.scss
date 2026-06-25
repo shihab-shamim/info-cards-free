@@ -1,0 +1,94 @@
+$primaryColor: #4527a4;
+
+.wp-block-icb-magnifying-glass-card-pro {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  .mgcb-card-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    overflow: hidden;
+
+    .mgcb-card {
+      position: relative;
+      display: grid;
+      place-items: start center;
+      width: 100%;
+
+      overflow: hidden;
+
+      > * {
+        grid-area: 1/1;
+      }
+
+      &:hover {
+        cursor: none;
+
+        > .mgcb-magnifying-glass {
+          scale: 1;
+        }
+      }
+
+      .mgcb-text {
+        z-index: 2;
+
+        .mgcb-split-text {
+          .word {
+            display: inline-block;
+            white-space: nowrap;
+          }
+
+          .whitespace {
+            display: inline;
+          }
+
+          .char {
+            display: inline-block; /* Essential for GSAP animation */
+          }
+        }
+      }
+
+      .mgcb-try-it {
+        position: absolute;
+        bottom: 0;
+        font-size: 2rem;
+        color: #fff;
+        letter-spacing: 0.2rem;
+        line-height: 3;
+        scale: 0;
+        z-index: 3;
+      }
+
+      img.mgcb-card-image {
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        transform-origin: 90% 90%;
+        clip-path: circle(2.5rem at 82% 82%);
+        filter: brightness(1.3);
+        scale: 1.5;
+      }
+
+      .mgcb-magnifying-glass {
+        position: absolute;
+
+        scale: 0;
+        transition: scale 0.7s ease;
+        // border-radius: 50%;
+        z-index: 10;
+        pointer-events: none;
+        // box-shadow:
+        //   inset 1px 2px 4px 3px rgba(255, 255, 255, 0.3),
+        //   inset 1px 2px 3px 2px rgba(255, 255, 255, 0.05),
+        //   inset 0px -40px 47px -18px rgba(0, 0, 0, 0.2),
+        //   inset -5px 5px 8px 0px rgba(0, 0, 0, 0.7),
+        //   inset -30px 15px 20px -10px rgba(0, 0, 0, 0.25),
+        //   1px 3px 8px 1px rgba(0, 0, 0, 0.4);
+        // border: 1px solid #ffffff26;
+      }
+    }
+  }
+}

@@ -1,0 +1,216 @@
+$primaryColor: #4527a4;
+:root {
+  --dfor-white: #ffffff;
+  --dfor-lightBG: #dce1df;
+  --dfor-salmon: #ff6666;
+  --dfor-teal: #0096a0;
+  --dfor-tealMid: #0ebac7;
+  --dfor-tealContrast: #33ffff;
+  --dfor-tealShade: #007c85;
+  --dfor-darkGrey: #4f585e;
+
+  --dfor-teal-light: #00a4b0;
+  --dfor-teal-dark: #008891;
+  --dfor-white-dark: #d9d9d9;
+}
+
+.wp-block-icb-fold-out-reveal-pro {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  a.dfor-toggle-info {
+    // background: var(--dfor-teal);
+    // border-radius: 4px;
+    // box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+    // color: var(--dfor-white);
+    display: inline-block;
+    // padding: 6px 30px 8px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+
+    @media (hover: hover) {
+      &:hover {
+        // background: var(--dfor-teal-light);
+        // box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+        // transform: translateY(-2px);
+        transition: all 0.25s 0s ease-out;
+      }
+    }
+
+    &:active {
+      background: var(--dfor-teal-dark);
+      box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+      transform: translate3d(0, 1px, 0);
+      transition: all 0.025s 0s ease-out;
+    }
+  }
+
+  div.dfor-cards {
+    display: grid;
+    // gap: 16px;
+    // grid-template-columns: 1fr;
+
+    // @media (min-width: 768px) {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
+
+    // @media (min-width: 1024px) {
+    //   grid-template-columns: repeat(4, 1fr);
+    // }
+
+    &.dfor-showing {
+      div.dfor-card {
+        cursor: pointer;
+        opacity: 0.6;
+        transform: scale(0.88);
+
+        @media (hover: hover) {
+          &:hover {
+            opacity: 0.94;
+            transform: scale(0.92);
+          }
+        }
+      }
+    }
+  }
+
+  div.dfor-card {
+    background: var(--dfor-white);
+    display: block;
+    perspective: 1000px;
+    position: relative;
+    text-align: left;
+    transition: all 0.3s 0s ease-in;
+    width: 100%;
+    z-index: 1;
+
+    img {
+      width: 100%;
+
+      display: block;
+    }
+
+    div.dfor-card-title {
+      position: relative;
+      z-index: 0;
+
+      a.dfor-toggle-info {
+        border-radius: 32px;
+        height: 32px;
+        padding: 0;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        width: 32px;
+
+        span {
+          // background: var(--dfor-white);
+          display: block;
+          height: 2px;
+          position: absolute;
+          top: 16px;
+          transition: all 0.15s 0s ease-out;
+          width: 12px;
+
+          &.dfor-left {
+            right: 14px;
+            transform: rotate(45deg);
+          }
+
+          &.dfor-right {
+            left: 14px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      h2 {
+        // font-size: 24px;
+        // font-weight: 700;
+        // letter-spacing: -0.05em;
+        margin: 0;
+        padding: 0;
+
+        small {
+          display: block;
+          // font-size: 18px;
+          // font-weight: 600;
+          // letter-spacing: -0.025em;
+        }
+      }
+    }
+
+    div.dfor-card-description {
+      position: relative;
+      // font-size: 14px;
+    }
+
+    div.dfor-card-actions {
+      // box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+      padding: 10px 15px 20px;
+      text-align: center;
+    }
+
+    div.dfor-card-flap {
+      background: var(--dfor-white-dark);
+      position: absolute;
+      width: 100%;
+      transform-origin: top;
+      transform: rotateX(-90deg);
+    }
+
+    div.dfor-flap1 {
+      transition: all 0.3s 0.3s ease-out;
+      z-index: -1;
+    }
+
+    div.dfor-flap2 {
+      transition: all 0.3s 0s ease-out;
+      z-index: -2;
+    }
+
+    &.dfor-show {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+
+      div.dfor-card-title {
+        a.dfor-toggle-info {
+          // background: var(--dfor-salmon) !important;
+
+          span {
+            top: 15px;
+          }
+
+          span.dfor-left {
+            right: 10px;
+          }
+
+          span.dfor-right {
+            left: 10px;
+          }
+        }
+      }
+
+      div.dfor-card-flap {
+        background: var(--dfor-white);
+        transform: rotateX(0deg);
+      }
+
+      div.dfor-flap1 {
+        transition: all 0.3s 0s ease-out;
+      }
+
+      div.dfor-flap2 {
+        transition: all 0.3s 0.2s ease-out;
+      }
+    }
+  }
+}

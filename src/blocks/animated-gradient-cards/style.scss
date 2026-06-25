@@ -1,0 +1,225 @@
+.wp-block-icb-animated-gradient-cards-pro {
+  box-sizing: border-box;
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .one-card-section-wrapper {
+    //   font: 400 1rem/1.375rem system-ui, sans-serif;
+    //   background-color: oklch(94% 0.01 312);
+    //   color: oklch(26% 0 0);
+    //   padding: 4rem 2rem;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+
+    .container {
+      //   inline-size: min(1024px, 100%);
+      width: 100%;
+    }
+
+    .wrapper {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      // gap: 2rem;
+      // grid-template-columns: repeat(3, 1fr);
+
+      li {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    // @media (width >= 768px) {
+    //   .card-list {
+    //     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    //   }
+    // }
+
+    /* 4. Card Component */
+    .card {
+      // background-color: oklch(100% 0 271);
+      // padding: 1px;
+      // border-radius: 22px;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      text-decoration: none;
+      outline: none;
+    }
+
+    /* 5. Shadow Layers (Elevation Cross-fade) */
+    .state-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .state-layer::before,
+    .state-layer::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      border-radius: inherit;
+      transition: opacity 250ms ease-in-out;
+    }
+
+    /* Hover Shadow (Elevation 4) */
+    .state-layer::before {
+      box-shadow:
+        0px 16px 32px -4px oklch(15% 0.01 286 / 10%),
+        0px 4px 4px -4px oklch(15% 0.01 286 / 5%);
+      opacity: 0;
+    }
+
+    /* Normal Shadow (Elevation 1) */
+    .state-layer::after {
+      box-shadow: 0px 1px 4px oklch(15% 0.01 286 / 5%);
+      mix-blend-mode: plus-darker;
+      opacity: 1;
+    }
+
+    .card:is(:hover, :focus-visible, :active) .state-layer::before {
+      opacity: 1;
+    }
+
+    .card:is(:hover, :focus-visible, :active) .state-layer::after {
+      opacity: 0;
+    }
+
+    /* 6. Card Visuals & Image */
+    .card-wrapper {
+      display: grid;
+      border-radius: inherit;
+      overflow: clip;
+      height: 100%;
+      width: 100%;
+    }
+
+    .visual {
+      grid-area: 1/1;
+      overflow: clip;
+    }
+
+    .img {
+      display: block;
+      block-size: 100%;
+      inline-size: 100%;
+      object-fit: cover;
+      transition: translate 250ms ease-in;
+    }
+
+    .card:is(:hover, :focus-visible, :active) .img {
+      translate: 0px -15px;
+    }
+
+    /* 7. Content Overlay */
+    .content {
+      grid-area: 1/1;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      /* Gradient overlay for readability */
+      // background-image: linear-gradient(
+      //   to bottom,
+      //   transparent 0%,
+      //   transparent 40%,
+      //   oklch(100% 0 271 / 80%) 65%,
+      //   oklch(100% 0 271 / 95%) 85%,
+      //   oklch(100% 0 271) 100%
+      // );
+    }
+
+    .content-wrapper {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 180px 1.25rem 2rem;
+      transition: translate 250ms ease-in-out;
+    }
+
+    .card:is(:hover, :focus-visible, :active) .content-wrapper {
+      translate: 0px -15px;
+    }
+
+    .link {
+      // color: oklch(55% 0.13 9);
+      // font-weight: 600;
+      opacity: 0;
+      transition: opacity 250ms 0.15s ease;
+      position: relative;
+      z-index: 3;
+      border: none;
+      outline: none;
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      // gap: 6px;
+
+      span {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .card:is(:hover, :focus-visible, :active) .link {
+        opacity: 1;
+      }
+    }
+
+    /* 8. Animated Border Utility */
+    .bordered::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border-radius: inherit;
+      opacity: 0;
+      border: 4px solid transparent;
+      transition: opacity 250ms ease-in-out;
+      pointer-events: none;
+
+      mask:
+        linear-gradient(white 0 0) padding-box,
+        linear-gradient(white 0 0);
+      -webkit-mask:
+        linear-gradient(white 0 0) padding-box,
+        linear-gradient(white 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+
+      animation: rotate-gradient 2.25s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .bordered:is(:hover, :focus-within, :active)::after {
+      opacity: 1;
+      animation-play-state: running;
+    }
+
+    @keyframes rotate-gradient {
+      from {
+        --gradient-angle: 0deg;
+      }
+      to {
+        --gradient-angle: 360deg;
+      }
+    }
+  }
+}
