@@ -42,8 +42,6 @@ class AdminMenu {
             id='bpInfoCardsBlock'
             data-info='<?php echo esc_attr( wp_json_encode( [
                 'version'            => ICB_VERSION,
-                'isPremium'          => info_cards_is_premium(),
-                'hasPro'             => INFO_CARDS_PRO,
                 'licenseActiveNonce' => wp_create_nonce( 'icbLicenseActive' ),
                 'action'             => 'icbGetBlocks',
                 'nonce'              => wp_create_nonce( 'icb_admin_nonce' ),

@@ -4,8 +4,7 @@ namespace ICB;
 
 class RestAPI {
     function __construct() {
-        add_action( 'wp_ajax_icbPremiumChecker',        [ $this, 'icbPremiumChecker' ] );
-        add_action( 'wp_ajax_nopriv_icbPremiumChecker', [ $this, 'icbPremiumChecker' ] );
+  
 
         add_action( 'rest_api_init', [ $this, 'registerSettings' ] );
         add_action( 'rest_api_init', [ $this, 'registerRoutes' ] );
@@ -16,17 +15,7 @@ class RestAPI {
         add_action( 'wp_ajax_nopriv_ncbPosts',  [ $this, 'ncbPosts_callback' ] );
     }
 
-    function icbPremiumChecker() {
-        $nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) );
-
-        if ( ! wp_verify_nonce( $nonce, 'wp_ajax' ) ) {
-            wp_send_json_error( 'Invalid Request' );
-        }
-
-        wp_send_json_success( [
-            'isPipe' => info_cards_is_premium(),
-        ] );
-    }
+   
 
     function registerSettings() {
         register_setting( 'icbUtils', 'icbUtils', [
@@ -124,9 +113,7 @@ class RestAPI {
      * REST routes
      */
     function registerRoutes() {
-        if ( ! info_cards_is_premium() ) {
-            return;
-        }
+       
 
         register_rest_route( 'icb/v1', '/posts', [
             'methods'             => 'GET',

@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 
 import './dashboard.scss';
 import App from './Components/App';
+// import { dashboardInfo } from './utils/data';
 import { dashboardInfo } from './utils/data';
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -14,7 +14,6 @@ if ( ! class_exists( 'ICB_InfoCards' ) ) {
             require_once ICB_DIR_PATH . 'includes/rootPlugin/inc/AdminMenu.php';
             require_once ICB_DIR_PATH . 'includes/rootPlugin/inc/ShortCode.php';
             require_once ICB_DIR_PATH . 'includes/rootPlugin/inc/RestAPI.php';
-            require_once ICB_DIR_PATH . 'includes/rootPlugin/inc/UpgradePage.php';
             require_once ICB_DIR_PATH . 'includes/rootPlugin/inc/Functions.php';
             require_once ICB_DIR_PATH . 'includes/rootPlugin/inc/Posts.php';
 
@@ -23,7 +22,6 @@ if ( ! class_exists( 'ICB_InfoCards' ) ) {
             new ICB\AdminMenu();
             new ICB\ShortCode();
             new ICB\RestAPI();
-            new ICB\UpgradePage();
         }
     }
     new ICB_InfoCards();

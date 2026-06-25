@@ -18,14 +18,7 @@ class Enqueue {
             $disabled_blocks = [];
         }
 
-        wp_localize_script(
-            'wp-blocks',
-            'ICB_BLOCK_DATA',
-            [
-                'disabledBlocks' => $disabled_blocks,
-                'isPremium'      => info_cards_is_premium(),
-            ]
-        );
+      
     }
 
     /**

@@ -115,33 +115,10 @@ class Init {
             $disabled_blocks = [];
         }
 
-        $is_premium = info_cards_is_premium();
+    
 
         // Register shared assets for pro blocks
-        if ( $is_premium ) {
-            $asset_path = ICB_DIR_PATH . 'build/blocks/index.asset.php';
-            $asset_file = file_exists( $asset_path )
-                ? include $asset_path
-                : [
-                    'dependencies' => [ 'wp-blocks', 'wp-element', 'wp-i18n' ],
-                    'version'      => ICB_VERSION,
-                ];
-
-            wp_register_script(
-                'icb-pro-blocks',
-                ICB_DIR_URL . 'build/blocks/index.js',
-                $asset_file['dependencies'],
-                $asset_file['version'],
-                true
-            );
-
-            wp_register_style(
-                'icb-pro-blocks',
-                ICB_DIR_URL . 'build/blocks/index.css',
-                [],
-                $asset_file['version']
-            );
-        }
+      
 
         foreach ( $all_blocks as $block_path ) {
             $block_name = basename( $block_path );
@@ -159,12 +136,7 @@ class Init {
             }
 
             // All other blocks are Pro — only register when premium is active.
-            if ( $is_premium ) {
-                register_block_type( $block_path, [
-                    'editor_script' => 'icb-pro-blocks',
-                    'editor_style'  => 'icb-pro-blocks',
-                ] );
-            }
+         
         }
     }
 

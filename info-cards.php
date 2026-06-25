@@ -11,7 +11,6 @@
  * License:          GPLv3 or later
  * License URI:        http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       info-cards
- * @fs_premium_only /vendor/freemius
  * @fs_free_only /vendor/freemius-lite
  */
 
@@ -31,7 +30,6 @@ if ( function_exists( 'info_cards_fs' ) ) {
     } );
 } else {
 
-    define( 'INFO_CARDS_PRO', file_exists( dirname( __FILE__ ) . '/vendor/freemius/start.php' ) );
     define( 'ICB_VERSION',    isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '3.0.1' );
     define( 'ICB_DIR_URL',    plugin_dir_url( __FILE__ ) );
     define( 'ICB_DIR_PATH',   plugin_dir_path( __FILE__ ) );
@@ -44,18 +42,16 @@ if ( function_exists( 'info_cards_fs' ) ) {
             global $info_cards_fs;
 
             if ( ! isset( $info_cards_fs ) ) {
-                if ( INFO_CARDS_PRO ) {
-                    require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
-                } else {
+               
                     require_once dirname( __FILE__ ) . '/vendor/freemius-lite/start.php';
-                }
+                
 
                 $apbConfig = [
                     'id'                  => '17727',
                     'slug'                => 'info-cards',
                     'type'                => 'plugin',
                     'public_key'          => 'pk_a98bc1d71dc1e0a8bf0aede3af3e0',
-                    'is_premium'          => true,
+                    'is_premium'          => false,
                     'premium_suffix'      => 'Pro',
                     'has_premium_version' => true,
                     'has_addons'          => false,
@@ -71,9 +67,7 @@ if ( function_exists( 'info_cards_fs' ) ) {
                     ],
                 ];
 
-                $info_cards_fs = INFO_CARDS_PRO
-                    ? fs_dynamic_init( $apbConfig )
-                    : fs_lite_dynamic_init( $apbConfig );
+                $info_cards_fs =fs_lite_dynamic_init( $apbConfig );
             }
 
             return $info_cards_fs;
@@ -83,9 +77,7 @@ if ( function_exists( 'info_cards_fs' ) ) {
         do_action( 'info_cards_fs_loaded' );
     }
 
-    if ( INFO_CARDS_PRO ) {
-        require_once ICB_DIR_PATH . 'includes/LicenseActivation.php';
-    }
+    
 
     require_once ICB_DIR_PATH . 'includes/utility/functions.php';
     require_once ICB_DIR_PATH . 'includes/rootPlugin/plugin.php';

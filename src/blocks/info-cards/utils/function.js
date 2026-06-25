@@ -1,12 +1,6 @@
   import { produce } from "immer";
   import Cards from "../Components/Backend/Cards";
-  import Theme6 from "../Components/Common/theme6/Theme6";
-  import SevenInfoCard from "../Components/Common/theme7/SevenInfoCard";
-  import ThemeEightInfoProfile from "../Components/Common/theme8/ThemeEightInfoProfile";
-  import ThemeNineTexOverly from "../Components/Common/theme9/ThemeNineTexOverly";
-  import ThemeTenMouseMove from "../Components/Common/theme10/ThemeTenMouseMove";
-import ThemeElevenServiceInfo from "../Components/Common/theme11/ThemeElevenServiceInfo";
-import ThemeTwelveHoverService from "../Components/Common/theme12/ThemeTwelveHoverService";
+
   export const getBoxValue = (object) => Object.values(object).join(" ");
 
   export const themeSwitch = (theme = "default", attributes) =>
@@ -2081,17 +2075,9 @@ import ThemeTwelveHoverService from "../Components/Common/theme12/ThemeTwelveHov
     theme,
     attributes,
     updateCard,
-    setAttributes,
-    isBacked,
-    activeIndex,
-    setActiveIndex,
-    premiumProps
+
   ) {
-    if (
-      ["default", "theme1", "theme2", "theme3", "theme4", "theme5"].includes(
-        theme
-      )
-    ) {
+    
       return (
         <Cards
           attributes={attributes}
@@ -2099,77 +2085,8 @@ import ThemeTwelveHoverService from "../Components/Common/theme12/ThemeTwelveHov
           updateCard={updateCard}
         />
       );
-    }
-    if (theme === "theme6") {
-      return (
-        <Theme6
-          attributes={attributes}
-          setAttributes={setAttributes}
-          isBacked={isBacked}
-          premiumProps={premiumProps}
-        />
-      );
-    }
-    if (theme === "theme7") {
-      return (
-        <SevenInfoCard
-          isBackend={isBacked}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          attributes={attributes}
-          setAttributes={setAttributes}
-          premiumProps={premiumProps}
-        />
-      );
-    }
-    if (theme === "theme8") {
-      return (
-        <div className="infoProfileMain">
-          {attributes?.productsInfo?.map((infoProfile, index) => (
-            <ThemeEightInfoProfile
-              isBackend={isBacked}
-              infoProfile={infoProfile}
-              index={index}
-              key={index}
-              attributes={attributes}
-              setAttributes={setAttributes}
-              premiumProps={premiumProps}
-            />
-          ))}
-        </div>
-      );
-    }
-
-    if (theme === "theme9") {
-      
-      return (
-        <ThemeNineTexOverly
-          attributes={attributes}
-          setAttributes={setAttributes}
-          isBackend={isBacked}
-          premiumProps={premiumProps}
-        />
-      );
-    }
-    if (theme === "theme10") {
-      
-      return (
-        <div className="themeTenProductInfoGrab">
-          <ThemeTenMouseMove
-            isEditor={isBacked}
-            attributes={attributes}
-            setAttributes={setAttributes}
-            premiumProps={premiumProps}
-          />
-        </div>
-      );
-    }
-    if(theme==="theme11"){
-      return(<ThemeElevenServiceInfo isEditor={isBacked} attributes={attributes} setAttributes={setAttributes} premiumProps={premiumProps} />)
-    }
-    if(theme === "theme12"){
-      return (<ThemeTwelveHoverService isEditor={isBacked} attributes={attributes} setAttributes={setAttributes} premiumProps={premiumProps} />)
-    }
+    
+   
   }
 
   export const updateData = (attr, value, ...props) => {
@@ -2202,104 +2119,49 @@ import ThemeTwelveHoverService from "../Components/Common/theme12/ThemeTwelveHov
       value: "default",
       img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-5.png",
       height: "auto",
-      width: "160px",
-      isPro:false
+      width: "160px"
+     
     },
     {
       label: "Theme-1",
       value: "theme1",
       img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-6.png",
       height: "auto",
-      width: "160px",
-      isPro:false
+      width: "160px"
+      
     },
     {
       label: "Theme-2",
       value: "theme2",
       img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-7.png",
       height: "auto",
-      width: "160px",
-      isPro:false
+      width: "160px"
+      
     },
     {
       label: "Theme-3",
       value: "theme3",
       img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-8.png",
       height: "auto",
-      width: "160px",
-      isPro:false
+      width: "160px"
+     
     },
     {
       label: "Theme-4",
       value: "theme4",
       img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-9.png",
       height: "auto",
-      width: "160px",
-      isPro:false
+      width: "160px"
+    
     },
     {
       label: "Theme-5",
       value: "theme5",
       img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-10.png",
       height: "auto",
-      width: "160px",
-      isPro:false
+      width: "160px"
       
-    },
-    {
-      label: "Theme-6",
-      value: "theme6",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-11.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
-    },
-    {
-      label: "Theme-7",
-      value: "theme7",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-12.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
-    },
-    {
-      label: "Theme-8",
-      value: "theme8",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-13.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
-    },
-    {
-      label: "Theme-9",
-      value: "theme9",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-14.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
-    },
-    {
-      label: "Theme-10",
-      value: "theme10",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-15.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
-    },
-    {
-      label: "Theme-11",
-      value: "theme11",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-7-1.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
-    },
-    {
-      label: "Theme-12",
-      value: "theme12",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/09/info-cards-theme-12.png",
-      height: "auto",
-      width: "160px",
-      isPro:true
+      
     }
+    
   ];

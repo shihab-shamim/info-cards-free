@@ -14760,8 +14760,6 @@ __webpack_require__.r(__webpack_exports__);
 
 const App = props => {
   const {
-    isPremium,
-    hasPro,
     adminUrl,
     action,
     nonce
@@ -14804,22 +14802,17 @@ const App = props => {
       demoInfo: _utils_data__WEBPACK_IMPORTED_MODULE_10__.demoInfo,
       ...props
     })
-  }), !isPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "pricing",
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_bpl_tools_Admin_Pricing__WEBPACK_IMPORTED_MODULE_3__["default"], {
       pricingInfo: _utils_data__WEBPACK_IMPORTED_MODULE_10__.pricingInfo,
       options: {},
       ...props
     })
-  }), !isPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "feature-comparison",
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_bpl_tools_Admin_FeatureCompare__WEBPACK_IMPORTED_MODULE_4__["default"], {
       plans: ['free', 'pro'],
-      ...props
-    })
-  }), hasPro && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-    path: "activation",
-    element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_bpl_tools_Admin_Activation__WEBPACK_IMPORTED_MODULE_5__["default"], {
       ...props
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
@@ -14879,17 +14872,10 @@ const navigation = [{
   name: 'Feature Comparison',
   href: '/feature-comparison'
 }, {
-  name: 'License Activation',
-  href: '/activation'
-}, {
   name: 'Settings',
   href: '/settings'
 }];
 const Layout = props => {
-  const {
-    isPremium,
-    hasPro
-  } = props;
   const location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bPlDashboard"
@@ -14897,9 +14883,7 @@ const Layout = props => {
     ...props
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("nav", {
     className: "bPlDashboardNav"
-  }, navigation?.filter(item => item.href !== '/activation' || hasPro) // Hide activation link for non-pro users
-  ?.filter(item => !isPremium || !['/purchase', '/pricing', '/feature-comparison'].includes(item.href)) // Hide link for premium users
-  ?.map((item, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+  }, navigation?.map((item, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     key: index,
     to: item.href,
     className: `navLink ${location.pathname === item.href ? 'active' : ''}`
@@ -15084,8 +15068,6 @@ const slug = "info-cards";
 const dashboardInfo = info => {
   const {
     version,
-    isPremium,
-    hasPro,
     licenseActiveNonce,
     action,
     nonce,
@@ -15093,15 +15075,12 @@ const dashboardInfo = info => {
     deleteDataOnUninstall,
     uninstallNonce
   } = info;
-  const proSuffix = isPremium ? " Pro" : "";
   return {
-    name: `Info Cards${proSuffix}`,
-    displayName: `Info Cards${proSuffix} — Add Text and Media in Card Layouts.`,
+    name: `Info Cards`,
+    displayName: `Info Cards — Add Text and Media in Card Layouts.`,
     description: "The Info Cards Block Plugin for WordPress allows you to create beautifully designed and informative cards within your content . With this plugin, you can present your content interactively and engagingly, making it easier for your audience to consume and understand your message.",
     slug,
     version,
-    isPremium,
-    hasPro,
     displayOurPlugins: true,
     media: {
       logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
@@ -15945,6 +15924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { dashboardInfo } from './utils/data';
 
 document.addEventListener('DOMContentLoaded', () => {
   const dashboardEl = document.getElementById('bpInfoCardsBlock');

@@ -19,11 +19,9 @@ class ShortCode {
     function onInit() {
         // Mirror pdf-embed-block: premium users see the selector UI,
         // free users get the default card block directly.
-        if ( info_cards_is_premium() ) {
-            $template = [ [ 'icb/info-cards-selector' ] ];
-        } else {
+     
             $template = [ [ 'icb/cards' ] ];
-        }
+        
 
         register_post_type( $this->post_type, [
             'labels' => [

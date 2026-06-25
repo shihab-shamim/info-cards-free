@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
         
 
           {
-           getCardContentFront(theme,attributes,isBacked)
+           getCardContentFront(attributes)
         }
       </>
     );

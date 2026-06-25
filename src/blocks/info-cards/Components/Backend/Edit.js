@@ -13,12 +13,10 @@ import ClipBoard from "../../../../components/ClipBoard";
 
 
 const Edit = ({ attributes, setAttributes, clientId ,device,CPTType,currentPostId}) => {
-  // const { isPremium } = usePremiumInEditor("bpicbUtils", "bpicbPremiumChecker");
-  const isPremium = Boolean(window.ICB_BLOCK_DATA?.isPremium ?? false);
+ 
   const { cards,theme } = attributes;
  const isBacked=true;
  const [activeIndex, setActiveIndex] = useState(0);
- const [isProModalOpen, setIsProModalOpen] = useState(false);
 
 
   useEffect(() => {
@@ -31,19 +29,19 @@ const Edit = ({ attributes, setAttributes, clientId ,device,CPTType,currentPostI
     });
     setAttributes({ cards: cardsCopy });
   }
- const premiumProps = { isPremium, setIsProModalOpen };
+
  const shortcode = `[icb id=${currentPostId}]`;
  
 
   return (
     <div {...useBlockProps()}>
-      <Settings attributes={attributes} isProModalOpen={isProModalOpen} setIsProModalOpen={setIsProModalOpen} setAttributes={setAttributes} updateCard={updateCard} clientId={clientId} device={device} activeIndex={activeIndex} isPremium={isPremium} />
+      <Settings attributes={attributes} setAttributes={setAttributes} updateCard={updateCard} clientId={clientId} device={device} activeIndex={activeIndex} />
 {  CPTType === "icb" && <ClipBoard shortCode={shortcode} />}
       <div id={`icbCards-${clientId}`}>
         <Style isBack = {true} attributes={attributes} id={`icbCards-${clientId}`} />
 
       {
-        getCardContentEdit(theme,attributes,updateCard,setAttributes,isBacked,activeIndex,setActiveIndex,premiumProps)
+        getCardContentEdit(theme,attributes,updateCard,setAttributes,isBacked,activeIndex,setActiveIndex)
       }
 
 

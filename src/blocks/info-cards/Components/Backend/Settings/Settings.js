@@ -16,7 +16,7 @@
   import { AboutProModal, ProModal } from "../../../../../../../bpl-tools/ProControls";
 
 
-  export default function ({ attributes, setAttributes, updateCard, device,activeIndex,isPremium,isProModalOpen,setIsProModalOpen }) {
+  export default function ({ attributes, setAttributes, updateCard, device,activeIndex }) {
     const {
       cards,
       theme,
@@ -27,11 +27,7 @@
     
     // const [isProModalOpen, setIsProModalOpen] = useState(false);
 
-    const premiumProps = { isPremium, setIsProModalOpen };
-
-    const props={
-      premiumProps
-    }
+ 
 
     return (
       <>
@@ -48,7 +44,7 @@
               <>
                 {"general" === tab.name && (
                   <General
-                  {...props}
+                  
                     attributes={attributes}
                     setAttributes={setAttributes}
                     updateCard={updateCard}
@@ -58,7 +54,7 @@
 
                 {"style" === tab.name && (
                   <Style
-                  {...props}
+                 
                     attributes={attributes}
                     setAttributes={setAttributes}
                     updateCard={updateCard}
@@ -98,7 +94,7 @@
         
           <BlockPreview
             options={toolTipPresets}
-            isPremium={isPremium}
+    
             value={theme}
               onChange={(val) => {
                         const newCards = cards.map((card) => ({
@@ -227,19 +223,9 @@
                             styles:{}
                           });
             
-                        // updateAllCard("background", { color: "#570DF8" })
+  
             
-                        if (
-                          val === "theme6" ||
-                          val === "theme7" ||
-                          val === "theme8" ||
-                          val === "theme9" ||
-                          val === "theme10" ||
-                          val === "theme11" ||
-                          val === "theme12"
-                        ) {
-                          setAttributes(themeSwitch(val, attributes, setAttributes));
-                        }
+                    
                       }}
 
 
@@ -247,43 +233,6 @@
 
         </BlockControls>
 
-        <ProModal
-        isProModalOpen={isProModalOpen}
-        setIsProModalOpen={setIsProModalOpen}
-        link="admin.php?page=info-cards-dashboard#/pricing"
-      >
-          <li>
-          <strong>
-            {__("Pro: ", "info-cards")}
-          </strong>
-          {__("Everything in free", "info-cards")}
-        </li>
-
-        <li>
-          <strong>
-            {__("Themes: ", "info-cards")}
-          </strong>
-          {__("5+ built-in design themes with 1 click.", "info-cards")}
-        </li>
-            <li>
-          <strong>
-            {__("Animated Cards: ", "info-cards")}
-          </strong>
-          {__("Eye-catching 3D and animated card styles for an interactive user experience.", "info-cards")}
-        </li>
-         <li>
-          <strong>
-            {__("Motion: ", "info-cards")}
-          </strong>
-          {__("Advanced mouse movement animation for cards.", "info-cards")}
-        </li>
-        <li>
-				<strong>
-					{__("Customization: ", "info-cards")}
-				</strong>
-				{__("Easily customize color, font, spacing, and card behavior directly from the block editor.", "info-cards")}
-			</li>
-      </ProModal>
       </>
     );
   }

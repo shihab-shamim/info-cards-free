@@ -3,19 +3,17 @@ import { animatedGradientCardsIcon, expandableAnimatedCardSliderIcon, expandingF
 const slug = "info-cards";
 
 export const dashboardInfo = (info) => {
-  const { version, isPremium, hasPro, licenseActiveNonce, action, nonce, adminUrl, deleteDataOnUninstall, uninstallNonce } = info;
+  const { version, licenseActiveNonce, action, nonce, adminUrl, deleteDataOnUninstall, uninstallNonce } = info;
 
-  const proSuffix = isPremium ? " Pro" : "";
+
 
   return {
-    name: `Info Cards${proSuffix}`,
-    displayName: `Info Cards${proSuffix} — Add Text and Media in Card Layouts.`,
+    name: `Info Cards`,
+    displayName: `Info Cards — Add Text and Media in Card Layouts.`,
     description:
       "The Info Cards Block Plugin for WordPress allows you to create beautifully designed and informative cards within your content . With this plugin, you can present your content interactively and engagingly, making it easier for your audience to consume and understand your message.",
     slug,
     version,
-    isPremium,
-    hasPro,
     displayOurPlugins: true,
     media: {
       logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
